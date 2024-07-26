@@ -1,10 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/Adon-venture-Black.jpg"; // Ensure you have your logo image in the assets folder
+import logo from "../../assets/Adon-venture-Black.jpg"; // Ensure you have your logo image in the assets folder
+import Features from "./Features";
+import LowerFooter from "./LowerFooter";
 
 const Footer = () => {
   return (
     <footer className="bg-white py-8">
+      <Features />
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-5">
         <div>
           <img src={logo} alt="Kitab Ghor" className="mb-4 h-10" />
@@ -162,21 +165,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="mt-8 border-t pt-4">
-        <div className="mx-auto flex max-w-7xl flex-wrap justify-center space-x-4">
-          <img src="/path-to-pay-image.png" alt="Pay With" className="h-8" />
-          <img src="/path-to-visa-image.png" alt="Visa" className="h-8" />
-          <img
-            src="/path-to-mastercard-image.png"
-            alt="MasterCard"
-            className="h-8"
-          />
-          <img src="/path-to-bkash-image.png" alt="Bkash" className="h-8" />
-        </div>
-        <div className="mt-4 text-center text-sm text-gray-700">
-          <p>Copyright © 2024 kitabghor.com</p>
-        </div>
-      </div>
+
+      <LowerFooter />
     </footer>
   );
 };

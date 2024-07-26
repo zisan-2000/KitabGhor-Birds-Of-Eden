@@ -62,7 +62,7 @@ const CategoriesPage = () => {
   return (
     <div className="bg-gray-100 py-8">
       <div className="mx-auto max-w-7xl p-4">
-        <h1 className="mb-8 text-3xl font-bold">বিষয়সমূহ</h1>
+        <h1 className="mb-8 text-center text-3xl font-bold">বিষয়সমূহ</h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category, index) => (
             <Link key={index} to={`/category/${category}`} className="block">

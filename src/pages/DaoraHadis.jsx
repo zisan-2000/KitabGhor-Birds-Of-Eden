@@ -1,6 +1,6 @@
 import React from "react";
-import ProductListing from "./../components/ProductListing";
-import SidebarFilter from "./../components/SidebarFilter";
+import ProductListing from "../components/Products/ProductListing";
+import SidebarFilter from "../components/Sidebar/SidebarFilter";
 
 const DaoraHadis = () => {
   return (

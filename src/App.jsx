@@ -1,18 +1,18 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import AuthorsPage from "./components/AuthorsPage";
-import CategoriesPage from "./components/CategoriesPage";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import PublishersPage from "./components/PublishersPage";
+import Categories from "./components/Categories/Categories";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import ProductDetail from "./components/Products/ProductDetail"; // Import the new component
+import Products from "./components/Products/Products";
+import AuthorsPage from "./pages/AuthorsPage";
 import BookFair from "./pages/BookFair";
-import Categories from "./pages/Categories";
+import CategoriesPage from "./pages/CategoriesPage";
 import DaoraHadis from "./pages/DaoraHadis";
 import Home from "./pages/Home";
 import IslamicPonno from "./pages/IslamicPonno";
 import PreOrder from "./pages/PreOrder";
-import ProductDetail from "./pages/ProductDetail"; // Import the new component
-import Products from "./pages/Products";
+import PublishersPage from "./pages/PublishersPage";
 
 const App = () => {
   return (
