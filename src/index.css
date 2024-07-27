@@ -3,3 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header {
+  @apply mx-auto flex max-w-7xl items-center justify-between p-4;
+}

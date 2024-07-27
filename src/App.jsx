@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import CartListTable from "./components/cart/CartListTable";
 import Categories from "./components/Categories/Categories";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/book-fair" element={<BookFair />} />
             <Route path="/pre-order" element={<PreOrder />} />
             <Route path="/islamic-products" element={<IslamicPonno />} />
+            <Route path="/cart" element={<CartListTable />} />
           </Routes>
         </main>
         <Footer />

@@ -1,5 +1,5 @@
 import Header3 from "../components/Header/Header3";
-import ProductListing from "../components/Products/ProductListing";
+import ProductListingPreorder from "../components/Products/ProductListingPreOrder";
 import SidebarFilter from "../components/Sidebar/SidebarFilter";
 import SortComponent from "../components/SortComponent";
 const PreOrder = () => {
@@ -18,7 +18,7 @@ const PreOrder = () => {
               <SortComponent />
             </div>
 
-            <ProductListing />
+            <ProductListingPreorder />
           </main>
         </div>
       </div>

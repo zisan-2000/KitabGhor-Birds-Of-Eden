@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Button1 from "../components/Button/Button1";
+import Button2 from "../components/Button/Button2";
 import Search from "../components/SearchBox/Search";
 
 const PublishersPage = () => {
@@ -39,13 +41,9 @@ const PublishersPage = () => {
               </h2>
               <div className="mt-4 flex justify-center space-x-4">
                 <Link to={`/publisher/${publisher.id}`}>
-                  <button className="rounded bg-red-500 px-4 py-2 text-white">
-                    সকল বই
-                  </button>
+                  <Button1>সকল বই</Button1>
                 </Link>
-                <span className="rounded bg-gray-200 px-4 py-2">
-                  {publisher.books_count} টি বই
-                </span>
+                <Button2>{publisher.books_count} টি বই</Button2>
               </div>
             </div>
           ))}

@@ -1,15 +1,7 @@
-// src/components/ProductCard.jsx
 import React from "react";
-import { useCart } from "../../contexts/CartContext";
 import Button1 from "../Button/Button1";
 
-const ProductCard = ({ product }) => {
-  const { addToCart } = useCart();
-
-  const handleAddToCart = () => {
-    addToCart(product);
-  };
-
+const ProductCardPreOrder = ({ product }) => {
   return (
     <div className="rounded bg-white p-4 shadow">
       <img
@@ -31,14 +23,11 @@ const ProductCard = ({ product }) => {
           {product.discount}% ছাড়
         </span>
       )}
-      <Button1
-        onClick={handleAddToCart}
-        className="mt-4 w-full rounded bg-red-500 px-4 py-2 text-white"
-      >
-        এখনই কিনুন
+      <Button1 className="mt-4 w-full rounded bg-red-500 px-4 py-2 text-white">
+        প্রি অর্ডার
       </Button1>
     </div>
   );
 };
 
-export default ProductCard;
+export default ProductCardPreOrder;
