@@ -1,28 +1,23 @@
 import React, { useState } from "react";
+import { FaChevronCircleDown, FaChevronCircleUp } from "react-icons/fa"; // Import the down and up arrow icons from react-icons
 import { Link } from "react-router-dom";
 
 const SubMenu = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <div className="relative">
-      <button
-        onClick={() => setDropdownOpen(!dropdownOpen)}
-        className="flex items-center hover:text-red-500"
-      >
+    <div
+      className="relative"
+      onMouseEnter={() => setDropdownOpen(true)}
+      onMouseLeave={() => setDropdownOpen(false)}
+    >
+      <button className="flex items-center hover:text-red-500">
         <span>কওমী পাঠ্য কিতাব</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
+        {dropdownOpen ? (
+          <FaChevronCircleDown className="ml-2 h-3 w-3" />
+        ) : (
+          <FaChevronCircleUp className="ml-2 h-3 w-3" />
+        )}
       </button>
       {dropdownOpen && (
         <div

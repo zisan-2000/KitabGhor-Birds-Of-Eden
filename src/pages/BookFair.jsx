@@ -1,7 +1,7 @@
 import Header4 from "../components/Header/Header4";
+import SortComponent from "../components/Others/SortComponent";
 import ProductListing from "../components/Products/ProductListing";
 import SidebarFilter from "../components/Sidebar/SidebarFilter";
-import SortComponent from "../components/SortComponent";
 const BookFair = () => {
   return (
     <div className="bg-gray-100 py-8">

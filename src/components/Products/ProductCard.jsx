@@ -1,7 +1,7 @@
 // src/components/ProductCard.jsx
 import React from "react";
 import { useCart } from "../../contexts/CartContext";
-import Button1 from "../Button/Button1";
+import Button from "../Button/Button";
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
@@ -31,12 +31,9 @@ const ProductCard = ({ product }) => {
           {product.discount}% ছাড়
         </span>
       )}
-      <Button1
-        onClick={handleAddToCart}
-        className="mt-4 w-full rounded bg-red-500 px-4 py-2 text-white"
-      >
+      <Button onClick={handleAddToCart} className="buttonRed">
         এখনই কিনুন
-      </Button1>
+      </Button>
     </div>
   );
 };

@@ -10,13 +10,13 @@ const Header = () => {
   return (
     <header className="bg-white shadow">
       <FirstHeader />
-      <nav className="bg-gray-100">
-        <div className="mx-auto flex max-w-7xl space-x-4 p-2">
+      <nav className="h-16 bg-pink-100">
+        <div className="mx-auto flex max-w-7xl gap-6 space-x-4 p-5 ">
           <Link to="/" className="flex items-center hover:text-red-500">
             <AiFillHome className="mr-1" /> {/* Home icon */}
             হোম
           </Link>
-          <Link to="/category/:category" className="hover:text-red-500">
+          <Link to="/category/:category" className=" hover:text-red-500">
             বিষয়সমূহ
           </Link>
           <Link to="/authors" className="hover:text-red-500">

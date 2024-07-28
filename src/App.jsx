@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import CartListTable from "./components/cart/CartListTable";
 import Categories from "./components/Categories/Categories";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -8,7 +7,9 @@ import ProductDetail from "./components/Products/ProductDetail"; // Import the n
 import Products from "./components/Products/Products";
 import AuthorsPage from "./pages/AuthorsPage";
 import BookFair from "./pages/BookFair";
+import CartListTable from "./pages/CartPage";
 import CategoriesPage from "./pages/CategoriesPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import DaoraHadis from "./pages/DaoraHadis";
 import Home from "./pages/Home";
 import IslamicPonno from "./pages/IslamicPonno";
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/pre-order" element={<PreOrder />} />
             <Route path="/islamic-products" element={<IslamicPonno />} />
             <Route path="/cart" element={<CartListTable />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
         </main>
         <Footer />

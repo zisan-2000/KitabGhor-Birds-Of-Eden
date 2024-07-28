@@ -1,9 +1,8 @@
+// src/pages/AuthorsPage.jsx
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Button1 from "../components/Button/Button1";
-import Button2 from "../components/Button/Button2";
-import Search from "../components/SearchBox/Search";
+import AuthorCard from "./../components/Card/AuthorCard";
+import Search from "./../components/SearchBox/Search";
 
 const AuthorsPage = () => {
   const [authors, setAuthors] = useState([]);
@@ -20,32 +19,13 @@ const AuthorsPage = () => {
       <div className="mx-auto max-w-7xl p-4">
         <div className="mb-8 flex flex-col items-center justify-between sm:flex-row">
           <h1 className="text-3xl font-bold">সকল লেখক</h1>
-          <div className="">
+          <div>
             <Search />
           </div>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {authors.map((author) => (
-            <div key={author.id} className="rounded bg-white p-4 shadow">
-              {author.image ? (
-                <img
-                  src={author.image}
-                  alt={author.name}
-                  className="mx-auto h-32 w-32 rounded-full object-cover"
-                />
-              ) : (
-                <div className="mx-auto h-32 w-32 rounded-full bg-gray-300"></div>
-              )}
-              <h2 className="mt-4 text-center text-xl font-semibold">
-                {author.name}
-              </h2>
-              <div className="mt-4 flex justify-center space-x-4">
-                <Link to={`/author/${author.id}`}>
-                  <Button1>সকল বই</Button1>
-                </Link>
-                <Button2>{author.books_count} টি বই</Button2>
-              </div>
-            </div>
+            <AuthorCard key={author.id} author={author} />
           ))}
         </div>
       </div>

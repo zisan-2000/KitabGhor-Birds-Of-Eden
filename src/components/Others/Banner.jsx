@@ -1,7 +1,7 @@
 import React from "react";
-import bannerImage1 from "../assets/banner1.png"; // Replace with your actual image paths
-import bannerImage2 from "../assets/banner2.png"; // Replace with your actual image paths
-import bannerImage3 from "../assets/banner3.png"; // Replace with your actual image paths
+import bannerImage1 from "../../assets/banner1.png"; // Replace with your actual image paths
+import bannerImage2 from "../../assets/banner2.png"; // Replace with your actual image paths
+import bannerImage3 from "../../assets/banner3.png"; // Replace with your actual image paths
 
 const Banner = () => {
   return (

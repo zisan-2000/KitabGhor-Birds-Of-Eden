@@ -1,7 +1,7 @@
 import Header2 from "../components/Header/Header2";
+import SortComponent from "../components/Others/SortComponent";
 import ProductListing from "../components/Products/ProductListing";
 import SidebarFilter2 from "../components/Sidebar/SidebarFilter2";
-import SortComponent from "../components/SortComponent";
 const IslamicPonno = () => {
   return (
     <div className="bg-gray-100 py-8">

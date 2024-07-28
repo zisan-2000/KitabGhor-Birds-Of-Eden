@@ -7,3 +7,11 @@
 .header {
   @apply mx-auto flex max-w-7xl items-center justify-between p-4;
 }
+
+.buttonRed {
+  @apply mt-4 w-full rounded bg-red-500 px-4 py-2 text-white hover:bg-green-600;
+}
+
+.buttonGray {
+  @apply mt-4 w-[120px] rounded bg-gray-400   text-white;
+}

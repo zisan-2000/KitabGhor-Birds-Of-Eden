@@ -1,4 +1,5 @@
 import React from "react";
+import { FaChevronCircleRight } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const Header3 = () => {
@@ -7,15 +8,15 @@ const Header3 = () => {
       <div className="mb-2 text-2xl font-semibold text-gray-700">
         প্রি অর্ডার এর বই
       </div>
-      <div className="text-lg text-gray-600">
+      <div className="flex items-center text-lg text-gray-600">
         <NavLink to="/" className="hover:underline">
           হোম
-        </NavLink>{" "}
-        &gt;
+        </NavLink>
+        <FaChevronCircleRight className="mx-2" /> {/* Insert the icon */}
         <NavLink to="/categories" className="hover:underline">
           বিষয় সমূহ
-        </NavLink>{" "}
-        &gt;
+        </NavLink>
+        <FaChevronCircleRight className="mx-2" /> {/* Insert the icon */}
       </div>
     </div>
   );

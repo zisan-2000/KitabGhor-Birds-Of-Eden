@@ -1,7 +1,7 @@
 import Header3 from "../components/Header/Header3";
+import SortComponent from "../components/Others/SortComponent";
 import ProductListingPreorder from "../components/Products/ProductListingPreOrder";
 import SidebarFilter from "../components/Sidebar/SidebarFilter";
-import SortComponent from "../components/SortComponent";
 const PreOrder = () => {
   return (
     <div className="bg-gray-100 py-8">

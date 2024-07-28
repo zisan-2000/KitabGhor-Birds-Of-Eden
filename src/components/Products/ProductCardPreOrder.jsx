@@ -1,5 +1,5 @@
 import React from "react";
-import Button1 from "../Button/Button1";
+import Button from "../Button/Button";
 
 const ProductCardPreOrder = ({ product }) => {
   return (
@@ -23,9 +23,7 @@ const ProductCardPreOrder = ({ product }) => {
           {product.discount}% ছাড়
         </span>
       )}
-      <Button1 className="mt-4 w-full rounded bg-red-500 px-4 py-2 text-white">
-        প্রি অর্ডার
-      </Button1>
+      <Button className="buttonRed">প্রি অর্ডার</Button>
     </div>
   );
 };
