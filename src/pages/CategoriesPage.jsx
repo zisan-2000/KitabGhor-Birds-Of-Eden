@@ -60,14 +60,18 @@ const categories = [
 
 const CategoriesPage = () => {
   return (
-    <div className="bg-gray-100 py-8">
+    <div className="min-h-screen bg-slate-300">
       <div className="mx-auto max-w-7xl p-4">
-        <h1 className="mb-8 text-center text-3xl font-bold">বিষয়সমূহ</h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <h1 className="mb-8 text-center text-4xl font-extrabold text-black">
+          বিষয়সমূহ
+        </h1>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category, index) => (
-            <Link key={index} to={`/category/${category}`} className="block">
-              <div className="rounded bg-white p-4 shadow hover:bg-gray-200">
-                {category}
+            <Link key={index} to={`/category/${category}`} className="group">
+              <div className="categoryPage">
+                <div className="relative z-20 px-4 text-center text-xl font-semibold text-gray-800 group-hover:text-black">
+                  {category}
+                </div>
               </div>
             </Link>
           ))}

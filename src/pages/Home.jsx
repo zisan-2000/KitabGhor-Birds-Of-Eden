@@ -1,6 +1,6 @@
 import React from "react";
+import Banner from "../components/Banner/Banner";
 import CategoryList from "../components/Categories/CategoryList";
-import Banner from "../components/Others/Banner";
 
 const Home = () => {
   return (

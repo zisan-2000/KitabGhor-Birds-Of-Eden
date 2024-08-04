@@ -1,5 +1,6 @@
 // src/components/PublisherCard.jsx
 import React from "react";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 
@@ -18,11 +19,31 @@ const PublisherCard = ({ publisher }) => {
       <h2 className="mt-4 text-center text-xl font-semibold">
         {publisher.name}
       </h2>
+
+      <div className="mb-2 mt-4 flex items-center justify-center text-gray-600">
+        <FaMapMarkerAlt className="mr-1 text-blue-500" />
+        <span>{publisher.location || "অজানা স্থান"}</span>
+      </div>
+
+      <p className="mb-4 text-center text-gray-700">
+        {publisher.description ||
+          "এই প্রকাশকের সম্পর্কে আরও তথ্য প্রাপ্ত হয়নি।"}
+      </p>
+
       <div className="mt-4 flex justify-center space-x-4">
         <Link to={`/publisher/${publisher.id}`}>
           <Button className="buttonRed">সকল বই</Button>
         </Link>
         <Button className="buttonGray">{publisher.books_count} টি বই</Button>
+      </div>
+
+      <div className="mt-4 text-center">
+        <Link
+          to={`/publisher/${publisher.id}/about`}
+          className="text-blue-500 hover:underline"
+        >
+          আরো জানুন
+        </Link>
       </div>
     </div>
   );

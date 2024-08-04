@@ -1,5 +1,13 @@
+// src/components/Header.jsx
 import React, { useState } from "react";
-import { AiFillHome } from "react-icons/ai"; // Import the home icon
+import { AiFillHome, AiOutlineUnorderedList } from "react-icons/ai";
+import { FaBookOpen, FaPenNib } from "react-icons/fa";
+import {
+  MdContactMail,
+  MdEvent,
+  MdLocalGroceryStore,
+  MdShoppingCart,
+} from "react-icons/md";
 import { Link } from "react-router-dom";
 import FirstHeader from "./FirstHeader";
 import SubMenu from "./SubMenu";
@@ -8,35 +16,62 @@ const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow">
+    <header className="bg-slate-800 shadow">
       <FirstHeader />
-      <nav className="h-16 bg-pink-100">
-        <div className="mx-auto flex max-w-7xl gap-6 space-x-4 p-5 ">
-          <Link to="/" className="flex items-center hover:text-red-500">
-            <AiFillHome className="mr-1" /> {/* Home icon */}
-            হোম
-          </Link>
-          <Link to="/category/:category" className=" hover:text-red-500">
-            বিষয়সমূহ
-          </Link>
-          <Link to="/authors" className="hover:text-red-500">
-            লেখক
-          </Link>
-          <Link to="/publishers" className="hover:text-red-500">
-            প্রকাশক
-          </Link>
 
-          <SubMenu />
+      <nav className="bgThemeColor shadow-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-between p-4">
+          <div className="flex space-x-7">
+            <Link to="/" className="menuHeader flex items-center">
+              <AiFillHome className="mr-1" /> {/* Home icon */}
+              হোম
+            </Link>
 
-          <Link to="/book-fair" className="hover:text-red-500">
-            বইমেলা 2024
-          </Link>
-          <Link to="/pre-order" className="hover:text-red-500">
-            প্রি-অর্ডার
-          </Link>
-          <Link to="/islamic-products" className="hover:text-red-500">
-            ইসলামিক পণ্য
-          </Link>
+            <Link
+              to="/category/:category"
+              className="menuHeader flex items-center"
+            >
+              <AiOutlineUnorderedList className="mr-1" />
+              বিষয়সমূহ
+            </Link>
+
+            <Link to="/authors" className="menuHeader flex items-center">
+              <FaPenNib className="mr-1" />
+              লেখক
+            </Link>
+
+            <Link to="/publishers" className="menuHeader flex items-center">
+              <FaBookOpen className="mr-1" />
+              প্রকাশক
+            </Link>
+
+            <SubMenu />
+
+            <Link to="/book-fair" className="menuHeader flex items-center">
+              <MdEvent className="mr-1" />
+              বইমেলা 2024
+            </Link>
+
+            <Link to="/pre-order" className="menuHeader flex items-center">
+              <MdShoppingCart className="mr-1" />
+              প্রি-অর্ডার
+            </Link>
+
+            <Link
+              to="/islamic-products"
+              className="menuHeader flex items-center"
+            >
+              <MdLocalGroceryStore className="mr-1" />
+              ইসলামিক পণ্য
+            </Link>
+          </div>
+
+          <div>
+            <Link to="/contact" className="menuHeader flex items-center">
+              <MdContactMail className="mr-1" />
+              যোগাযোগ
+            </Link>
+          </div>
         </div>
       </nav>
     </header>

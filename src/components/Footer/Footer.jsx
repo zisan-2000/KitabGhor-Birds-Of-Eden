@@ -1,4 +1,4 @@
-// src/components/Footer.jsx
+// Footer.jsx
 import React from "react";
 import Features from "./Features";
 import FooterContact from "./FooterContact";
@@ -8,56 +8,54 @@ import LowerFooter from "./LowerFooter";
 
 const footerLinksData = [
   {
-    title: "LINKS",
+    title: "Explore",
     links: [
-      { name: "Book Category", path: "/book-category" },
-      { name: "Writers", path: "/writers" },
-      { name: "Publication List", path: "/publication-list" },
-      { name: "Stationary Items", path: "/stationary-items" },
-      { name: "Islamic Items", path: "/islamic-items" },
-      { name: "Corporate Sale", path: "/corporate-sale" },
-      { name: "Writer/Publisher", path: "/writer-publisher" },
-      { name: "Pre Order", path: "/pre-order" },
+      { name: "Shop", path: "/shop" },
+      { name: "New Arrivals", path: "/new-arrivals" },
+      { name: "Best Sellers", path: "/best-sellers" },
+      { name: "Discount Offers", path: "/discount-offers" },
+      { name: "Gift Cards", path: "/gift-cards" },
+      { name: "Affiliate Program", path: "/affiliate-program" },
+      { name: "Become a Vendor", path: "/become-vendor" },
     ],
   },
   {
-    title: "COMPANY",
+    title: "About Us",
     links: [
-      { name: "About Us", path: "/about-us" },
-      { name: "Delivery", path: "/delivery" },
-      {
-        name: "Return, Refund & Cancellation",
-        path: "/return-refund-cancellation",
-      },
-      { name: "Privacy Policy", path: "/privacy-policy" },
-      { name: "Terms of Conditions", path: "/terms-conditions" },
+      { name: "Our Story", path: "/our-story" },
+      { name: "Careers", path: "/careers" },
+      { name: "Sustainability", path: "/sustainability" },
+      { name: "Press", path: "/press" },
+      { name: "Contact", path: "/contact" },
     ],
   },
   {
-    title: "MY ACCOUNT",
+    title: "Account",
     links: [
-      { name: "Sign In / Register", path: "/sign-in-register" },
-      { name: "Order History", path: "/order-history" },
-      { name: "My Favorite Lists", path: "/favorite-lists" },
-      { name: "My Wishlist", path: "/wishlist" },
+      { name: "Login", path: "/login" },
+      { name: "Register", path: "/register" },
+      { name: "Order Status", path: "/order-status" },
+      { name: "Wishlist", path: "/wishlist" },
+      { name: "Rewards", path: "/rewards" },
     ],
   },
   {
-    title: "CUSTOMER SUPPORT",
+    title: "Help",
     links: [
-      { name: "Order Track", path: "/order-track" },
-      { name: "Contact Us", path: "/contact-us" },
-      { name: "How to Shop", path: "/how-to-shop" },
-      { name: "FAQ", path: "/faq" },
+      { name: "Support Center", path: "/support-center" },
+      { name: "FAQs", path: "/faqs" },
+      { name: "Shipping & Returns", path: "/shipping-returns" },
+      { name: "Order Tracking", path: "/order-tracking" },
+      { name: "Terms & Conditions", path: "/terms-conditions" },
     ],
   },
 ];
 
 const Footer = () => {
   return (
-    <footer className="bg-pink-100 py-8">
+    <footer className="bg-gray-800 py-12 text-white">
       <Features />
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-5">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-5">
         <FooterContact />
         {footerLinksData.map((section, index) => (
           <FooterLinks
@@ -66,7 +64,6 @@ const Footer = () => {
             links={section.links}
           />
         ))}
-
         <FooterSocial />
       </div>
       <LowerFooter />

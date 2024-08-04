@@ -8,7 +8,7 @@ const SortComponent = () => {
   };
 
   return (
-    <div className="bg-pink flex items-center justify-between p-4 shadow-md">
+    <div className="bgThemeColor flex items-center justify-between p-4 shadow-md">
       <div className="text-lg font-semibold">মোট ৩০ টি পণ্য</div>
       <div className="flex items-center">
         <span className="mr-2 font-semibold">সেট করুন:</span>

@@ -1,16 +1,15 @@
-// src/components/FooterContact.jsx
+// FooterContact.jsx
 import React from "react";
 import logo from "../../assets/Adon-venture-Black.jpg"; // Ensure you have your logo image in the assets folder
 
 const FooterContact = () => {
   return (
     <div>
-      <img src={logo} alt="Kitab Ghor" className="mb-4 h-10" />
-      <p className="mb-2 text-gray-700">096 138 29654</p>
-      <p className="text-gray-700">(9:00am - 10:00pm)</p>
-      <p className="text-gray-700">01786 089316 (Only whatsapp)</p>
-      <p className="text-gray-700">support@BirdsOfEden.com</p>
-      <p className="text-gray-700">ECB Chattar, Tower-71, Dhaka-1216</p>
+      <img src={logo} alt="Company Logo" className="mb-4 h-16 w-auto" />
+      <p className="mb-2 text-gray-300">+1 (800) 123-4567</p>
+      <p className="text-gray-300">9:00 AM - 10:00 PM, Mon - Sat</p>
+      <p className="text-gray-300">support@yourdomain.com</p>
+      <p className="text-gray-300">1234 Market St, San Francisco, CA 94103</p>
     </div>
   );
 };

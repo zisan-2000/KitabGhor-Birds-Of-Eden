@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import Button from "../Button/Button";
 
-const PaymentMethods = ({ formData, total, discount, shippingCost }) => {
+const PaymentMethods = ({ formData, totalPrice, shippingCost, finalTotal }) => {
   const [paymentMethod, setPaymentMethod] = useState("");
 
   const handlePaymentChange = (e) => {
@@ -24,11 +24,9 @@ const PaymentMethods = ({ formData, total, discount, shippingCost }) => {
       district: formData.district,
       area: formData.area,
       address_details: formData.addressDetails,
-      total: parseFloat(total),
-      discount: parseFloat(discount),
+      total: parseFloat(totalPrice),
       shipping_cost: parseFloat(shippingCost),
-      grand_total:
-        parseFloat(total) + parseFloat(shippingCost) - parseFloat(discount),
+      grand_total: parseFloat(finalTotal),
       payment_method: paymentMethod,
     };
 
@@ -50,6 +48,9 @@ const PaymentMethods = ({ formData, total, discount, shippingCost }) => {
 
       const result = await response.json();
       console.log("Order submitted successfully:", result);
+
+      // Show a success alert
+      alert("Order will be submitted successfully.");
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
     }

@@ -2,8 +2,8 @@ import React from "react";
 
 const SidebarFilter2 = () => {
   return (
-    <div className="bg-orange-400 p-4">
-      <div className="mb-2 text-xl font-semibold text-white">অনুসন্ধান:</div>
+    <div className="bgThemeColor p-4">
+      <div className="mb-2 text-xl font-semibold text-black">অনুসন্ধান:</div>
       <div className="rounded-lg bg-white p-2">
         <div className="mb-2 text-lg font-bold">ব্র্যান্ড:</div>
         <div className="space-y-2">

@@ -1,18 +1,17 @@
-// src/components/SearchFirstHeader.jsx
 import React from "react";
 import { FaSearch } from "react-icons/fa"; // Import the search icon from react-icons
 
 const SearchFirstHeader = () => {
   return (
-    <div className="flex items-center">
-      <div className="relative flex w-[600px]">
+    <div className="flex items-center justify-center  py-4">
+      <div className="relative flex w-[400px]">
         <input
           type="text"
-          placeholder="Search by books (ex. কুরআন সুরাহর আলোকে)"
-          className="flex-grow  border border-gray-300 bg-white py-2 pl-4 text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none"
+          placeholder="Search by books (e.g., কুরআন সুরাহর আলোকে)"
+          className="flex-grow rounded-full border border-gray-300 bg-white py-2 pl-4 pr-10 text-gray-700  "
         />
-        <button className="flex items-center justify-center  bg-red-500 p-2">
-          <FaSearch className="h-4 w-8 text-white" />
+        <button className="absolute right-0 top-0 flex h-full w-12 items-center justify-center rounded-r-full bg-red-500 ">
+          <FaSearch className="h-5 w-5 text-white" />
         </button>
       </div>
     </div>

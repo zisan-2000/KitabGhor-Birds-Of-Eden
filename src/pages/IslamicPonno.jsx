@@ -4,7 +4,7 @@ import ProductListing from "../components/Products/ProductListing";
 import SidebarFilter2 from "../components/Sidebar/SidebarFilter2";
 const IslamicPonno = () => {
   return (
-    <div className="bg-gray-100 py-8">
+    <div className="bg-slate-300 py-8">
       <div className="mx-auto max-w-7xl p-4">
         <div className="">
           <Header2 />

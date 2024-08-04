@@ -10,6 +10,7 @@ import BookFair from "./pages/BookFair";
 import CartListTable from "./pages/CartPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import ContactPage from "./pages/ContactPage";
 import DaoraHadis from "./pages/DaoraHadis";
 import Home from "./pages/Home";
 import IslamicPonno from "./pages/IslamicPonno";
@@ -40,6 +41,7 @@ const App = () => {
             <Route path="/islamic-products" element={<IslamicPonno />} />
             <Route path="/cart" element={<CartListTable />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
         <Footer />
