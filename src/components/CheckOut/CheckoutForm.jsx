@@ -8,7 +8,7 @@ const CheckoutForm = ({ setFormData }) => {
     altPhoneNumber: "",
     country: "bangladesh",
     district: "bogura",
-    area: "wer",
+    area: "Nandigram",
     addressDetails: "",
   });
 
@@ -107,7 +107,7 @@ const CheckoutForm = ({ setFormData }) => {
               onChange={handleChange}
               className="w-full rounded border p-2"
             >
-              <option value="wer">ওয়ার</option>
+              <option value="wer">নন্দীগ্রাম</option>
             </select>
           </div>
         </div>

@@ -1,3 +1,4 @@
+// PaymentMethods.jsx
 import React, { useState } from "react";
 import {
   FaCcVisa,
@@ -5,16 +6,25 @@ import {
   FaStepBackward,
   FaStepForward,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { useCart } from "../../contexts/CartContext";
 import Button from "../Button/Button";
 
 const PaymentMethods = ({ formData, totalPrice, shippingCost, finalTotal }) => {
   const [paymentMethod, setPaymentMethod] = useState("");
+  const navigate = useNavigate(); // Initialize navigate
+  const { cart } = useCart(); // Get cart items from the cart context
 
   const handlePaymentChange = (e) => {
     setPaymentMethod(e.target.value);
   };
 
   const handleSubmit = async () => {
+    const products = cart.items.map((item) => ({
+      product_id: item.id,
+      quantity: item.quantity,
+    }));
+
     const data = {
       name: formData.name,
       email: formData.email || null,
@@ -28,6 +38,7 @@ const PaymentMethods = ({ formData, totalPrice, shippingCost, finalTotal }) => {
       shipping_cost: parseFloat(shippingCost),
       grand_total: parseFloat(finalTotal),
       payment_method: paymentMethod,
+      products: products,
     };
 
     try {
@@ -49,8 +60,8 @@ const PaymentMethods = ({ formData, totalPrice, shippingCost, finalTotal }) => {
       const result = await response.json();
       console.log("Order submitted successfully:", result);
 
-      // Show a success alert
-      alert("Order will be submitted successfully.");
+      // Redirect to order confirmation page with result
+      navigate("/order-confirmation", { state: { order: result } });
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
     }

@@ -14,15 +14,15 @@ const ProductCard = ({ product }) => {
     <div className="rounded bg-white p-4 shadow">
       <img
         src={product.image}
-        alt={product.title}
+        alt={product.name}
         className="h-48 w-full rounded object-cover"
       />
-      <h3 className="mt-4 text-lg font-semibold">{product.title}</h3>
+      <h3 className="mt-4 text-lg font-semibold">{product.name}</h3>
       <p className="mt-2 font-bold text-red-500">
         ৳ {product.price}{" "}
         {product.discount && (
           <span className="text-gray-500 line-through">
-            ৳ {product.originalPrice}
+            ৳ {product.original_price}
           </span>
         )}
       </p>
@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
           {product.discount}% ছাড়
         </span>
       )}
-      <Button onClick={handleAddToCart} className="buttonRed">
+      <Button onClick={handleAddToCart} className="buttonRed mt-4">
         এখনই কিনুন
       </Button>
     </div>

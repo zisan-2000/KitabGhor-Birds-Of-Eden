@@ -14,6 +14,7 @@ import ContactPage from "./pages/ContactPage";
 import DaoraHadis from "./pages/DaoraHadis";
 import Home from "./pages/Home";
 import IslamicPonno from "./pages/IslamicPonno";
+import OrderConfirmation from "./pages/OrderConfirmation/OrderConfirmation";
 import PreOrder from "./pages/PreOrder";
 import PublishersPage from "./pages/PublishersPage";
 
@@ -42,6 +43,7 @@ const App = () => {
             <Route path="/cart" element={<CartListTable />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/order-confirmation" element={<OrderConfirmation />} />
           </Routes>
         </main>
         <Footer />
