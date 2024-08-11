@@ -10,7 +10,7 @@ const BookFair = () => {
           <Header4 />
         </div>
         <div className="flex flex-col lg:flex-row">
-          <aside className="w-full p-4 lg:w-1/4 xl:w-3/4 2xl:w-[600px] ">
+          <aside className=" w-full p-4 lg:w-1/4  2xl:w-[300px] ">
             <SidebarFilter />
           </aside>
           <main className="w-full p-4 lg:w-3/4 xl:w-3/4 2xl:w-auto">

@@ -11,7 +11,7 @@ const IslamicPonno = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row 2xl:flex-row">
-          <aside className="w-full p-4 lg:w-1/4 2xl:w-[600px]">
+          <aside className="w-full p-4 lg:w-1/4 2xl:w-[300px]">
             {/* <SidebarFilter /> */}
             <SidebarFilter2 />
           </aside>

@@ -10,7 +10,7 @@ const PreOrder = () => {
           <Header3 />
         </div>
         <div className="flex flex-col lg:flex-row ">
-          <aside className="w-full p-4 lg:w-1/4 2xl:w-auto">
+          <aside className="w-full p-4 lg:w-1/4 2xl:w-[350px]">
             <SidebarFilter />
           </aside>
           <main className="w-full p-4 lg:w-3/4 2xl:w-[1300px]">

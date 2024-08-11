@@ -19,10 +19,6 @@ const Header2 = () => {
           ইসলামিক পণ্য
         </NavLink>
         <FaChevronCircleRight className="mx-2" /> {/* Insert the icon */}
-        <NavLink to="/hajj-umrah" className="hover:underline">
-          হজ্জ এবং উমরার আনুসাঙ্গিক দর্যাদি
-        </NavLink>
-        <FaChevronCircleRight className="mx-2" /> {/* Insert the icon */}
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const Header3 = () => {
           হোম
         </NavLink>
         <FaChevronCircleRight className="mx-2" /> {/* Insert the icon */}
-        <NavLink to="/categories" className="hover:underline">
+        <NavLink to="/category" className="hover:underline">
           বিষয় সমূহ
         </NavLink>
         <FaChevronCircleRight className="mx-2" /> {/* Insert the icon */}

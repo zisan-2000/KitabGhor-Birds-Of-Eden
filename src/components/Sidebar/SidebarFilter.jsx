@@ -1,55 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AuthorFilter from "./SidebarAuthorFilter";
 
 const SidebarFilter = () => {
+  const [publishers, setPublishers] = useState([]);
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/publishers/")
+      .then((response) => response.json())
+      .then((data) => setPublishers(data))
+      .catch((error) => console.error("Error fetching publishers:", error));
+  }, []);
+
   return (
     <div className="bgThemeColor p-4">
-      <div className="w-full rounded bg-white p-4 shadow-md">
+      <div className="w-full rounded bg-white p-4 shadow-md ">
         <h2 className="mb-4 text-xl font-bold">অনুসন্ধান</h2>
 
         <div>
           <h3 className="mb-2 font-semibold">প্রকাশক:</h3>
           <div className="mb-4 h-64 overflow-y-auto">
-            <label className="block">
-              <input type="checkbox" className="mr-2" />
-              অতিক্রম
-            </label>
-            <label className="block">
-              <input type="checkbox" className="mr-2" />
-              অবসর প্রকাশনা সংস্থা
-            </label>
-            <label className="block">
-              <input type="checkbox" className="mr-2" />
-              ওয়াফি পাবলিকেশন
-            </label>
-            <label className="block">
-              <input type="checkbox" className="mr-2" />
-              কেন্দ্রবিন্দু
-            </label>
-            <label className="block">
-              <input type="checkbox" className="mr-2" />
-              চর্চা গ্রন্থ প্রকাশ
-            </label>
-            <label className="block">
-              <input type="checkbox" className="mr-2" />
-              বর্ধমানপুর
-            </label>
-            <label className="block">
-              <input type="checkbox" className="mr-2" />
-              বাছাইচর বুকস
-            </label>
-            <label className="block">
-              <input type="checkbox" className="mr-2" />
-              বিজ্ঞান আইটি
-            </label>
-            <label className="block">
-              <input type="checkbox" className="mr-2" />
-              সরলরেখা প্রকাশন
-            </label>
-            {/* Add more filters similarly */}
-            {/* <div>
-            
-          </div> */}
+            {publishers.length > 0 ? (
+              publishers.map((publisher) => (
+                <label className="block" key={publisher.id}>
+                  <input type="checkbox" className="mr-2" />
+                  {publisher.name}
+                </label>
+              ))
+            ) : (
+              <p>Loading publishers...</p>
+            )}
           </div>
           <AuthorFilter />
         </div>
