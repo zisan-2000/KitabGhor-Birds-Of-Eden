@@ -4,18 +4,18 @@ import ProductListing from "../components/Products/ProductListing";
 import SidebarFilter2 from "../components/Sidebar/SidebarFilter2";
 const IslamicPonno = () => {
   return (
-    <div className="bg-slate-300 py-8">
+    <div className="bgMain py-8">
       <div className="mx-auto max-w-7xl p-4">
         <div className="">
           <Header2 />
         </div>
 
-        <div className="flex flex-col lg:flex-row">
-          <aside className="w-full p-4 lg:w-1/4">
+        <div className="flex flex-col lg:flex-row 2xl:flex-row">
+          <aside className="w-full p-4 lg:w-1/4 2xl:w-[600px]">
             {/* <SidebarFilter /> */}
             <SidebarFilter2 />
           </aside>
-          <main className="w-full p-4 lg:w-3/4">
+          <main className="w-full p-4 lg:w-3/4 2xl:w-auto">
             <div className="mb-4">
               <SortComponent />
             </div>

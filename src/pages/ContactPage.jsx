@@ -1,72 +1,115 @@
-import React from "react";
+// src/ContactForm.js
+
+import axios from "axios";
+import React, { useState } from "react";
 
 const Contact = () => {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-slate-300 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8">
-        <div>
-          <h2 className="text-center text-3xl font-extrabold text-gray-900">
-            আমাদের সাথে যোগাযোগ করুন
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            আপনার কথা শুনতে আমরা আগ্রহী! অনুগ্রহ করে নিচের ফর্মটি পূরণ করুন এবং
-            আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।
-          </p>
-        </div>
-        <form className="mt-8 space-y-6">
-          <div className="-space-y-px rounded-md shadow-sm">
-            <div>
-              <label htmlFor="name" className="sr-only">
-                নাম
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="আপনার নাম"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="sr-only">
-                ইমেইল ঠিকানা
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="ইমেইল ঠিকানা"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="sr-only">
-                বার্তা
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-                className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="আপনার বার্তা"
-              ></textarea>
-            </div>
-          </div>
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone_number: "",
+    message: "",
+  });
 
-          <div>
-            <button
-              type="submit"
-              className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              বার্তা পাঠান
-            </button>
-          </div>
-        </form>
-      </div>
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post("http://127.0.0.1:8000/contacts/", formData)
+      .then((response) => {
+        console.log("Contact message posted:", response.data);
+        setFormData({ name: "", email: "", phone_number: "", message: "" });
+        alert("Message sent successfully!");
+      })
+      .catch((error) => {
+        console.error("There was an error posting the contact message!", error);
+        alert("Failed to send the message.");
+      });
+  };
+
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="mb-4 text-2xl font-bold">Contact Us</h1>
+      <form onSubmit={handleSubmit} className="rounded bg-white p-6 shadow-md">
+        <div className="mb-4">
+          <label
+            className="mb-2 block text-sm font-bold text-gray-700"
+            htmlFor="name"
+          >
+            Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="mb-2 block text-sm font-bold text-gray-700"
+            htmlFor="email"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="mb-2 block text-sm font-bold text-gray-700"
+            htmlFor="phone_number"
+          >
+            Phone Number (Optional)
+          </label>
+          <input
+            type="text"
+            name="phone_number"
+            value={formData.phone_number}
+            onChange={handleChange}
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="mb-2 block text-sm font-bold text-gray-700"
+            htmlFor="message"
+          >
+            Message
+          </label>
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+            rows="5"
+            required
+          />
+        </div>
+        <div className="flex items-center justify-between">
+          <button
+            type="submit"
+            className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
+          >
+            Send Message
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

@@ -4,16 +4,16 @@ import ProductListingPreorder from "../components/Products/ProductListingPreOrde
 import SidebarFilter from "../components/Sidebar/SidebarFilter";
 const PreOrder = () => {
   return (
-    <div className="bg-slate-300 py-8">
+    <div className="bgMain py-8">
       <div className="mx-auto max-w-7xl p-4">
         <div className="">
           <Header3 />
         </div>
-        <div className="flex flex-col lg:flex-row">
-          <aside className="w-full p-4 lg:w-1/4">
+        <div className="flex flex-col lg:flex-row ">
+          <aside className="w-full p-4 lg:w-1/4 2xl:w-auto">
             <SidebarFilter />
           </aside>
-          <main className="w-full p-4 lg:w-3/4">
+          <main className="w-full p-4 lg:w-3/4 2xl:w-[1300px]">
             <div className="mb-4">
               <SortComponent />
             </div>

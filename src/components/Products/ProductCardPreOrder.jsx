@@ -1,7 +1,13 @@
 import React from "react";
+import { useCart } from "../../contexts/CartContext";
 import Button from "../Button/Button";
 
 const ProductCardPreOrder = ({ product }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
   return (
     <div className="rounded bg-white p-4 shadow">
       <img
@@ -23,7 +29,10 @@ const ProductCardPreOrder = ({ product }) => {
           {product.discount}% ছাড়
         </span>
       )}
-      <Button className="buttonRed">প্রি অর্ডার</Button>
+      <Button onClick={handleAddToCart} className="buttonRed mt-4">
+        প্রি অর্ডার
+      </Button>
+      {/* <Button className="buttonRed">প্রি অর্ডার</Button> */}
     </div>
   );
 };

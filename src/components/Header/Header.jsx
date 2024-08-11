@@ -1,7 +1,7 @@
 // src/components/Header.jsx
 import React, { useState } from "react";
 import { AiFillHome, AiOutlineUnorderedList } from "react-icons/ai";
-import { FaBookOpen, FaPenNib } from "react-icons/fa";
+import { FaBlog, FaBookOpen, FaPenNib } from "react-icons/fa";
 import {
   MdContactMail,
   MdEvent,
@@ -27,10 +27,7 @@ const Header = () => {
               হোম
             </Link>
 
-            <Link
-              to="/category/:category"
-              className="menuHeader flex items-center"
-            >
+            <Link to="/category" className="menuHeader flex items-center">
               <AiOutlineUnorderedList className="mr-1" />
               বিষয়সমূহ
             </Link>
@@ -45,7 +42,9 @@ const Header = () => {
               প্রকাশক
             </Link>
 
-            <SubMenu />
+            <div className="menuHeader flex items-center">
+              <SubMenu />
+            </div>
 
             <Link to="/book-fair" className="menuHeader flex items-center">
               <MdEvent className="mr-1" />
@@ -63,6 +62,14 @@ const Header = () => {
             >
               <MdLocalGroceryStore className="mr-1" />
               ইসলামিক পণ্য
+            </Link>
+
+            <Link
+              to="/blogList"
+              className="flex items-center rounded-full bg-gradient-to-r  from-blue-500 to-purple-600 p-2 text-white transition hover:text-black"
+            >
+              <FaBlog className="mr-2" />
+              ব্লগসমুহ
             </Link>
           </div>
 

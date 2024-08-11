@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa"; // Import the search icon from react-
 const SearchFirstHeader = () => {
   return (
     <div className="flex items-center justify-center  py-4">
-      <div className="relative flex w-[400px]">
+      <div className="relative flex w-[500px]">
         <input
           type="text"
           placeholder="Search by books (e.g., কুরআন সুরাহর আলোকে)"

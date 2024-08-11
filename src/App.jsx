@@ -6,9 +6,12 @@ import Header from "./components/Header/Header";
 import ProductDetail from "./components/Products/ProductDetail"; // Import the new component
 import Products from "./components/Products/Products";
 import AuthorsPage from "./pages/AuthorsPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
+import BlogListPage from "./pages/BlogListPage";
 import BookFair from "./pages/BookFair";
 import CartListTable from "./pages/CartPage";
 import CategoriesPage from "./pages/CategoriesPage";
+import CategoryProductsPage from "./pages/CategoryProductsPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import ContactPage from "./pages/ContactPage";
 import DaoraHadis from "./pages/DaoraHadis";
@@ -28,11 +31,12 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/categories" element={<Categories />} />
-            <Route path="/category/:category" element={<CategoriesPage />} />
+            <Route path="category" element={<CategoriesPage />} />
             <Route
-              path="/product/:productId"
-              element={<ProductDetail />}
-            />{" "}
+              path="/category/:categoryId"
+              element={<CategoryProductsPage />}
+            />
+            <Route path="/product/:productId" element={<ProductDetail />} />{" "}
             {/* Add the route */}
             <Route path="/authors" element={<AuthorsPage />} />
             <Route path="/publishers" element={<PublishersPage />} />
@@ -44,6 +48,8 @@ const App = () => {
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/order-confirmation" element={<OrderConfirmation />} />
+            <Route path="/blogList" element={<BlogListPage />} />
+            <Route path="/blog/:id" element={<BlogDetailPage />} />
           </Routes>
         </main>
         <Footer />

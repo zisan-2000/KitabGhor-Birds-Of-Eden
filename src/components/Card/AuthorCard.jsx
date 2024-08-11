@@ -9,7 +9,7 @@ const AuthorCard = ({ author }) => {
       key={author.id}
       className="transform rounded-lg bg-white p-6 shadow-lg transition-transform hover:scale-105"
     >
-      <div className="relative mb-4">
+      <div className="relative mb-4 ">
         {author.image ? (
           <img
             src={author.image}

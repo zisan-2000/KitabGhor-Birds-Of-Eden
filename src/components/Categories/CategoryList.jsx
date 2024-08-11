@@ -23,7 +23,7 @@ const CategoryList = () => {
 
   return (
     <div className="bg-slate-300 py-8">
-      <div className="mx-auto max-w-7xl p-4">
+      <div className=" mx-auto max-w-7xl p-4 ">
         {categories.map((category) => (
           <div key={category.id} className="mb-12">
             <h2 className="mb-6 text-3xl font-bold text-gray-800">

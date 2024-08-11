@@ -15,7 +15,7 @@ const PublishersPage = () => {
   }, []);
 
   return (
-    <div className="bg-slate-300 py-8">
+    <div className="bgMain py-8">
       <div className="mx-auto max-w-7xl p-4">
         <div className="mb-8 flex flex-col items-center justify-between sm:flex-row">
           <h1 className="text-3xl font-bold">সকল প্রকাশক</h1>

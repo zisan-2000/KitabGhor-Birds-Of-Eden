@@ -1,79 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-const categories = [
-  "ইসলামী বই",
-  "মূল",
-  "পলিটেকনিক",
-  "শিশু-কিশোর বই",
-  "মুক্তিযুদ্ধ",
-  "বইমেলা, ভ্রমণ & অ্যাডভেঞ্চার",
-  "গল্প",
-  "রচনাসমগ্র/উপন্যাসসমগ্র",
-  "পরিবেশ, প্রকৃতি & ভূগোল",
-  "ছড়া, কবিতা & আঞ্চলিক",
-  "বিজ্ঞান & গণিত",
-  "সমাজ, সভ্যতা & সংস্কৃতি",
-  "যোগ & আধ্যাত্মিক",
-  "আইন & আদালত",
-  "ইংরেজি & অন্যান্য ভাষার বই",
-  "সাহিত্য সমগ্রণা",
-  "নতুন প্রকাশনা",
-  "বিবিধ প্রকাশনা",
-  "ম্যাগাজিন",
-  "যোগাযোগ উন্নয়ন",
-  "ক্যালেজ",
-  "ইঞ্জিনিয়ারিং",
-  "ভর্তি পরীক্ষাসহ, পরীক্ষার প্রস্তুতি & ইন্টারভিউ",
-  "ভাষা & অভিধান",
-  "জীবনী, মুক্তিযুদ্ধ & সাক্ষাৎকার",
-  "মাধ্যমিক & কৌটুক",
-  "ইতিহাস",
-  "দর্শন",
-  "মেকানিক্স, গ্রাফিক্স & ছবির গল্প",
-  "কম্পিউটার & প্রযুক্তি",
-  "গণমাধ্যম & সাংবাদিকতা",
-  "মা, শিশু, নারী & পরিবার",
-  "প্রাণিবিজ্ঞান",
-  "বাণিজ্য, প্রবাদ-প্রকরণ, মানচিত্র",
-  "ক্রিকেট, সুখ & গ্রেফ",
-  "পরিবার & পার্সোনালিটি",
-  "প্রমোশনাল & ক্যারিয়ার উন্নয়ন",
-  "মেডিকেল",
-  "বিশ্ববিদ্যালয়",
-  "প্রমোশন: বাংলাদেশ",
-  "উপন্যাস",
-  "সাইন্স ফিকশন & ফ্যান্টাসি",
-  "প্রবন্ধ",
-  "পুরস্কারপ্রাপ্ত বই",
-  "রেফারেন্স, প্রমোশনাল & জার্নাল",
-  "ব্যবসা & অর্থনীতি",
-  "কৃষি & সার্বিকপক্ষ উন্নয়ন",
-  "ড্রইং, পেইন্টিং & প্রোটোটেকনিক",
-  "সংগীত, শিল্প, নাটক & চলচিত্র",
-  "রাজনীতি & সমাজবিজ্ঞান",
-  "আত্ম-উন্নয়ন & মোটিভেশন",
-  "খাদ্য, রান্না & পুষ্টি",
-  "ভ্রমণ, কৌটুক & বিভ্রান্তি",
-  "বিবিধ",
-];
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const CategoriesPage = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/categories/")
+      .then((response) => response.json())
+      .then((data) => setCategories(data))
+      .catch((error) => console.error("Error fetching categories:", error));
+  }, []);
+
   return (
-    <div className="min-h-screen bg-slate-300">
-      <div className="mx-auto max-w-7xl p-4">
-        <h1 className="mb-8 text-center text-4xl font-extrabold text-black">
-          বিষয়সমূহ
-        </h1>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((category, index) => (
-            <Link key={index} to={`/category/${category}`} className="group">
-              <div className="categoryPage">
-                <div className="relative z-20 px-4 text-center text-xl font-semibold text-gray-800 group-hover:text-black">
-                  {category}
-                </div>
-              </div>
-            </Link>
+    <div className="bgMain">
+      <div className="container mx-auto p-4">
+        <h1 className="mb-4 text-3xl font-bold">বিষয়সমূহ</h1>
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {categories.map((category) => (
+            <NavLink
+              key={category.id}
+              to={`/category/${category.id}`}
+              className="mb-10 rounded-md bg-white p-4 text-center shadow-md"
+            >
+              <p className="p-10 text-xl">{category.name}</p>
+            </NavLink>
           ))}
         </div>
       </div>

@@ -1,10 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from "../../contexts/CartContext";
+import Button from "../Button/Button";
 
 const ProductDetail = () => {
+  const { addToCart } = useCart();
+
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
 
   useEffect(() => {
     axios
@@ -21,11 +29,11 @@ const ProductDetail = () => {
     <div className="bg-gray-100 py-4">
       <div className="mx-auto max-w-7xl p-4">
         <div className="rounded bg-white p-4 shadow">
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col gap-20 md:flex-row">
             <img
               src={product.image}
               alt={product.name}
-              className="h-auto w-full rounded object-cover md:w-1/3"
+              className="h-auto w-full rounded border  border-slate-950 object-cover md:w-1/3"
             />
             <div className="mt-4 md:ml-8 md:mt-0">
               <h2 className="text-3xl font-bold">{product.name}</h2>
@@ -59,9 +67,9 @@ const ProductDetail = () => {
                   className="w-16 rounded border px-2 py-1"
                 />
               </div>
-              <button className="mt-4 rounded bg-red-500 px-4 py-2 text-white">
+              <Button onClick={handleAddToCart} className="buttonRed mt-4">
                 এখনই কিনুন
-              </button>
+              </Button>
             </div>
           </div>
           <div className="mt-8">

@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="rounded bg-white p-4 shadow">
+    <div className="rounded bg-white p-4 shadow ">
       <img
         src={product.image}
         alt={product.name}
