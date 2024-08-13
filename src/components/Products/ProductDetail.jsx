@@ -6,22 +6,51 @@ import Button from "../Button/Button";
 
 const ProductDetail = () => {
   const { addToCart } = useCart();
-
   const { productId } = useParams();
+
   const [product, setProduct] = useState(null);
+  const [writer, setWriter] = useState(null);
+  const [publisher, setPublisher] = useState(null);
+  const [category, setCategory] = useState(null);
 
   const handleAddToCart = () => {
     addToCart(product);
   };
 
+  const handleImageClick = () => {
+    if (product.pdf) {
+      window.open(product.pdf, "_blank");
+    } else {
+      alert("No PDF available for this product.");
+    }
+  };
+
   useEffect(() => {
+    // Fetch product details
     axios
       .get(`http://127.0.0.1:8000/products/${productId}/`)
-      .then((response) => setProduct(response.data))
+      .then((response) => {
+        setProduct(response.data);
+        // Fetch writer details
+        axios
+          .get(`http://127.0.0.1:8000/writers/${response.data.writer}/`)
+          .then((writerResponse) => setWriter(writerResponse.data))
+          .catch((error) => console.error("Error fetching writer:", error));
+        // Fetch publisher details
+        axios
+          .get(`http://127.0.0.1:8000/publishers/${response.data.publisher}/`)
+          .then((publisherResponse) => setPublisher(publisherResponse.data))
+          .catch((error) => console.error("Error fetching publisher:", error));
+        // Fetch category details
+        axios
+          .get(`http://127.0.0.1:8000/categories/${response.data.category}/`)
+          .then((categoryResponse) => setCategory(categoryResponse.data))
+          .catch((error) => console.error("Error fetching category:", error));
+      })
       .catch((error) => console.error("Error fetching product:", error));
   }, [productId]);
 
-  if (!product) {
+  if (!product || !writer || !publisher || !category) {
     return <div>Loading...</div>;
   }
 
@@ -33,19 +62,20 @@ const ProductDetail = () => {
             <img
               src={product.image}
               alt={product.name}
-              className="h-auto w-full rounded border  border-slate-950 object-cover md:w-1/3"
+              className="h-auto w-full cursor-pointer rounded border border-slate-950 object-cover md:w-1/3"
+              onClick={handleImageClick}
+              title="Please click to view the PDF"
             />
             <div className="mt-4 md:ml-8 md:mt-0">
               <h2 className="text-3xl font-bold">{product.name}</h2>
               <p className="mt-2">
-                <strong>লেখক:</strong> {product.writer}
+                <strong>লেখক:</strong> {writer.name}
               </p>
               <p>
-                <strong>প্রকাশনী:</strong> {product.publication}
+                <strong>প্রকাশনী:</strong> {publisher.name}
               </p>
               <p>
-                <strong>বিষয়:</strong> {product.category_name}{" "}
-                {/* Assuming category_name is available */}
+                <strong>বিষয়:</strong> {category.name}
               </p>
               <p className="mt-4 text-xl text-red-500">
                 ৳ {product.price}{" "}
@@ -54,19 +84,6 @@ const ProductDetail = () => {
                 </span>{" "}
                 <span className="text-green-500">{product.discount}% ছাড়</span>
               </p>
-              <div className="mt-4 flex items-center">
-                <label className="mr-2" htmlFor="quantity">
-                  পরিমাণ:
-                </label>
-                <input
-                  type="number"
-                  id="quantity"
-                  name="quantity"
-                  min="1"
-                  defaultValue="1"
-                  className="w-16 rounded border px-2 py-1"
-                />
-              </div>
               <Button onClick={handleAddToCart} className="buttonRed mt-4">
                 এখনই কিনুন
               </Button>
@@ -77,28 +94,23 @@ const ProductDetail = () => {
             <p className="mt-2">{product.description}</p>
             <div className="mt-4">
               <p>
-                <strong>প্রকাশনী:</strong> {product.publication}
+                <strong>প্রকাশনী:</strong> {publisher.name}
               </p>
               <p>
                 <strong>পৃষ্ঠা সংখ্যা:</strong> 160
               </p>{" "}
-              {/* Add relevant field if exists */}
               <p>
                 <strong>ভাষা:</strong> Bangla
               </p>{" "}
-              {/* Add relevant field if exists */}
               <p>
                 <strong>বাঁধাই:</strong> Hard cover
               </p>{" "}
-              {/* Add relevant field if exists */}
               <p>
                 <strong>ISBN:</strong> 9789845326168
               </p>{" "}
-              {/* Add relevant field if exists */}
               <p>
                 <strong>প্রথম প্রকাশ:</strong> 2024
               </p>{" "}
-              {/* Add relevant field if exists */}
             </div>
           </div>
         </div>

@@ -1,117 +1,122 @@
-// src/ContactForm.js
-
 import axios from "axios";
 import React, { useState } from "react";
 
-const Contact = () => {
+const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone_number: "",
     message: "",
   });
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    axios
-      .post("http://127.0.0.1:8000/contacts/", formData)
-      .then((response) => {
-        console.log("Contact message posted:", response.data);
-        setFormData({ name: "", email: "", phone_number: "", message: "" });
-        alert("Message sent successfully!");
-      })
-      .catch((error) => {
-        console.error("There was an error posting the contact message!", error);
-        alert("Failed to send the message.");
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/contacts/",
+        formData,
+      );
+      setStatus("Message sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone_number: "",
+        message: "",
       });
+    } catch (error) {
+      setStatus("Failed to send message.");
+    }
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="mx-auto max-w-md rounded-lg border border-gray-300 p-4 shadow-md">
       <h1 className="mb-4 text-2xl font-bold">Contact Us</h1>
-      <form onSubmit={handleSubmit} className="rounded bg-white p-6 shadow-md">
-        <div className="mb-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
           <label
-            className="mb-2 block text-sm font-bold text-gray-700"
             htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
           >
             Name
           </label>
           <input
             type="text"
+            id="name"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             required
+            className="mt-1 block w-full rounded-lg border border-gray-300 p-2"
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
-            className="mb-2 block text-sm font-bold text-gray-700"
             htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
           >
             Email
           </label>
           <input
             type="email"
+            id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             required
+            className="mt-1 block w-full rounded-lg border border-gray-300 p-2"
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
-            className="mb-2 block text-sm font-bold text-gray-700"
             htmlFor="phone_number"
+            className="block text-sm font-medium text-gray-700"
           >
-            Phone Number (Optional)
+            Phone Number
           </label>
           <input
             type="text"
+            id="phone_number"
             name="phone_number"
             value={formData.phone_number}
             onChange={handleChange}
-            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+            className="mt-1 block w-full rounded-lg border border-gray-300 p-2"
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
-            className="mb-2 block text-sm font-bold text-gray-700"
             htmlFor="message"
+            className="block text-sm font-medium text-gray-700"
           >
             Message
           </label>
           <textarea
+            id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-            rows="5"
             required
+            className="mt-1 block w-full rounded-lg border border-gray-300 p-2"
+            rows="4"
           />
         </div>
-        <div className="flex items-center justify-between">
-          <button
-            type="submit"
-            className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
-          >
-            Send Message
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="w-full rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+        >
+          Send Message
+        </button>
       </form>
+      {status && (
+        <p className="mt-4 text-center text-sm font-medium">{status}</p>
+      )}
     </div>
   );
 };
 
-export default Contact;
+export default ContactForm;

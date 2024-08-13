@@ -35,12 +35,12 @@ const Banner = () => {
       buttons: [
         {
           text: "এখনই কিনুন",
-          link: "#shop",
+          link: "islamic-products",
           style: "bg-orange-500 hover:bg-orange-600",
         },
         {
           text: "আরও জানুন",
-          link: "#about",
+          link: "/",
           style: "bg-green-500 hover:bg-gray-200 text-black",
         },
       ],
@@ -54,12 +54,12 @@ const Banner = () => {
       buttons: [
         {
           text: "সংগ্রহগুলি ব্রাউজ করুন",
-          link: "#collections",
+          link: "category",
           style: "bg-orange-500 hover:bg-orange-600",
         },
         {
           text: "আমাদের সম্প্রদায়ে যোগ দিন",
-          link: "#community",
+          link: "blogList",
           style: "bg-green-500 hover:bg-gray-200 text-black",
         },
       ],
